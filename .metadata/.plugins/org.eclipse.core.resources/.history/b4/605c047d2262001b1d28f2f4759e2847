@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml:GitlabCI
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:yml="http://www.example.org/yml"
+    xsi:schemaLocation="http://www.example.org/yml ../model/yml.ecore">
+  <images name="alpine:3.12">
+    <entrypoint>/usr/sbin/apache2ctl</entrypoint>
+    <entrypoint>-D</entrypoint>
+    <entrypoint>FOREGROUND</entrypoint>
+  </images>
+  <services
+      name="mysql:latest"
+      alias="mysql-1"/>
+</yml:GitlabCI>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml:GitlabCI
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:yml="http://www.example.org/yml"
+    xsi:schemaLocation="http://www.example.org/yml ../model/yml.ecore"
+    name=".gitlab-ci.yml">
+  <jobs name="test"
+      script="make test"
+      image="//@images.0"
+      services="//@services.0">
+    <rules if="$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == &quot;master&quot;"
+        when="delayed"
+        allow_failure="true"
+        start_in="3hours"/>
+    <artifacts
+        Paths="binaries/"
+        exclude="binaries/**/*.o"
+        expose_as="artifact 1"
+        name="artifactTest.zip"
+        when="on_success"/>
+  </jobs>
+  <images name="alpine:3.12">
+    <entrypoint>/usr/sbin/apache2ctl</entrypoint>
+    <entrypoint>-D</entrypoint>
+    <entrypoint>FOREGROUND</entrypoint>
+  </images>
+  <services
+      name="my-postgres:11.7"
+      alias="db-postgres"
+      entrypoint="/usr/local/bin/db-postgres">
+    <command>start</command>
+  </services>
+</yml:GitlabCI>

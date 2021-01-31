@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/yml/src-gen" creationIcons="false" editDirectory="/yml.edit/src-gen"
+    editorDirectory="/yml.editor/src-gen" modelPluginID="yml" modelName="Yml" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>yml.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Yml" disposableProviderFactory="true" ecorePackage="yml.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="yml.ecore#//Stage">
+      <genEnumLiterals ecoreEnumLiteral="yml.ecore#//Stage/Deploy"/>
+      <genEnumLiterals ecoreEnumLiteral="yml.ecore#//Stage/Build"/>
+      <genEnumLiterals ecoreEnumLiteral="yml.ecore#//Stage/Test"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="yml.ecore#//When">
+      <genEnumLiterals ecoreEnumLiteral="yml.ecore#//When/on_success"/>
+      <genEnumLiterals ecoreEnumLiteral="yml.ecore#//When/on_failure"/>
+      <genEnumLiterals ecoreEnumLiteral="yml.ecore#//When/always"/>
+      <genEnumLiterals ecoreEnumLiteral="yml.ecore#//When/delayed"/>
+      <genEnumLiterals ecoreEnumLiteral="yml.ecore#//When/never"/>
+      <genEnumLiterals ecoreEnumLiteral="yml.ecore#//When/manual"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="yml.ecore#//Action">
+      <genEnumLiterals ecoreEnumLiteral="yml.ecore#//Action/start"/>
+      <genEnumLiterals ecoreEnumLiteral="yml.ecore#//Action/prepare"/>
+      <genEnumLiterals ecoreEnumLiteral="yml.ecore#//Action/stop"/>
+    </genEnums>
+    <genClasses ecoreClass="yml.ecore#//ImageG">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//ImageG/entrypoint"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference yml.ecore#//ImageG/job"/>
+    </genClasses>
+    <genClasses ecoreClass="yml.ecore#//Service">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//Service/alias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//Service/entrypoint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//Service/command"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference yml.ecore#//Service/job"/>
+    </genClasses>
+    <genClasses ecoreClass="yml.ecore#//Job">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//Job/stage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//Job/script"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//Job/after_script"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference yml.ecore#//Job/rules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference yml.ecore#//Job/environments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference yml.ecore#//Job/artifacts"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference yml.ecore#//Job/service"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference yml.ecore#//Job/image"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference yml.ecore#//Job/imageg"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="yml.ecore#//ElementNomme">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//ElementNomme/name"/>
+    </genClasses>
+    <genClasses ecoreClass="yml.ecore#//artifact">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//artifact/Paths"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//artifact/exclude"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//artifact/expose_as"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//artifact/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//artifact/untracked"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//artifact/when"/>
+    </genClasses>
+    <genClasses ecoreClass="yml.ecore#//Rule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//Rule/if"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//Rule/when"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//Rule/allow_failure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//Rule/start_in"/>
+    </genClasses>
+    <genClasses ecoreClass="yml.ecore#//Environment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//Environment/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//Environment/action"/>
+    </genClasses>
+    <genClasses ecoreClass="yml.ecore#//GitlabCI">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference yml.ecore#//GitlabCI/jobs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference yml.ecore#//GitlabCI/images"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference yml.ecore#//GitlabCI/services"/>
+    </genClasses>
+    <genClasses ecoreClass="yml.ecore#//ImageJ">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yml.ecore#//ImageJ/entrypoint"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

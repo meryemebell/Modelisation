@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="yml" nsURI="http://www.example.org/yml" nsPrefix="yml">
+  <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//ElementNomme">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entrypoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Service" eSuperTypes="#//ElementNomme">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entrypoint"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="command"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Stage">
+    <eLiterals name="Deploy"/>
+    <eLiterals name="Build" value="1"/>
+    <eLiterals name="Test" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NewEnum2"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Job">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stage" lowerBound="1" eType="#//Stage"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="script" defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementNomme" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
